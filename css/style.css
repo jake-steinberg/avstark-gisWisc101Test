@@ -1,0 +1,30 @@
+/*Stylesheet 2022 Alissa Stark*/
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body, #map {
+    height: 100%;
+    width: 100%;
+}
+.dropdown {
+    min-width: 15em;
+    padding: 5px 10px 10px 10px;
+    background-image: none;
+    background-color: azure;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.dropdown h3 {
+    margin: 5px 0px 0px 0px;
+    text-align: center;
+    font: 1.25em sans-serif;
+}
+#cluster_sel {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 5px;
+}
