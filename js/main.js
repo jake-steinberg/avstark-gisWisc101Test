@@ -119,7 +119,8 @@ let uwSchoolsGeojson = L.geoJSON(uwSchools, {
             }
         }); //.addTo(map);
 
-        // Set layers for control
+
+// Set layers for control
 var otherLayers = {
     //"Objects Recently Added" : addedData,
     "All Museum Objects" : clusterMarkers,
@@ -141,7 +142,7 @@ let dropdown = L.control({position: "topright"});
 dropdown.onAdd = function() {
     let div = L.DomUtil.create("div", "dropdown");
     div.innerHTML = 
-       '<h3>Choose Museum Object Category</h3>' +
+       '<h3>Choose Museum Object Grouping</h3>' +
         '<select id="clusters_sel"></select>';  
     return div;
 };
