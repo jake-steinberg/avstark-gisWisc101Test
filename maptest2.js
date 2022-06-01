@@ -95,7 +95,7 @@ if(mapContainer) {
     getSlider();
 } // if map
 
-
+//####### Was thinking of replacing the clider object created by Justin with the Leaflet Slider plugin #######
 function getSlider(){
     slider = document.getElementById("time-slider");
     let sliderOutput = document.getElementById("slider-output");
@@ -110,7 +110,7 @@ function getSlider(){
         if (markers.length > 0) {
             for (let i = 0; i < markers.length; i++) {
                 const startYear = Number.parseInt(markers[i]['startDate']);
-                
+                //###### THIS IS WHERE THE ISSUE IS CONNECTED TO ######  all markers come in and out at once #######
                 if(startYear > selectedYear) {
                     console.log("REMOVE MARKER WITH START YEAR OF: " + startYear);
                     markers[i]['marker'].remove();
@@ -152,73 +152,3 @@ const processChange = debounce(() => setMapMarkers());
 
 
 
-
-
-
-//original before test
-/*function setMapMarkers() {
-    for (let feature of geoJson.features) {
-        const exhibit = feature['properties'];
-        const isInMarkers = inMarkers(exhibit['id']);
-
-        // ADD MARKERS TO MAP
-        if(!isInMarkers && exhibit['start_date'] <= selectedYear && (exhibit['end_date'] === "" || exhibit['end_date'] >= selectedYear)) {
-            let marker = L.marker([43.7844, -89.25]); // DEFAULT MAP MARKER LOCATION
-
-            if( (exhibit['lat'] && exhibit['lat'] !== "") && ( exhibit['long'] && exhibit['long'] !== "") ) {
-                 marker = L.marker([exhibit['lat'], exhibit['long']]);
-            }
-
-            marker.addTo(map);
-
-            let markerContent = "<b>" + exhibit['title'] + "</b><br/>";
-            markerContent += "<div style='display: flex; justify-content: center'><img src='" + exhibit['img_url'] + "' alt='' style='max-height: 260px; width: auto;'/></div>";
-            markerContent += "<p>" + exhibit['desc'] + "</p>"
-            markerContent += "<p><a href='" + exhibit['page_link'] + "'>View Exhibit</a></p>"
-            marker.bindPopup(markerContent);
-
-            const markerObj = {id: exhibit['id'], marker: marker, startDate: exhibit['start_date'], endDate: exhibit['end_date']}
-            markers.push(markerObj);
-
-        }
-    }
-}
-*/
-
-
-/*
-function createClusters(data) {
-        // CREATE CLUSTER GROUP
-        let clusterMarkers = L.markerClusterGroup();
-
-        // CREATE ICON
-        let myIcon = L.icon({
-            iconUrl: 'images/pin24.png',
-            iconSize: [29, 24],
-            iconAnchor: [9, 21],
-            popupAnchor: [0, -14],
-        });
-
-        // MARKER OPTIONS
-        let markerOptions = {
-            icon: myIcon
-        };
-
-        // PARSE DATA / GEOJSON AND CREATE MARKERS
-        let markerGeojson = L.geoJson(data, {
-            onEachFeature: function(feature, layer, latlng) {
-                const exhibit = feature['properties'];
-
-                let markerContent = "<b>" + exhibit['title'] + "</b><br/>";
-                markerContent += "<div style='display: flex; justify-content: center'><img src='" + exhibit['img_url'] + "' alt='' style='max-height: 260px; width: auto;'/></div>";
-                markerContent += "<p style='width: 100%; text-align: center'><a href='" + exhibit['page_link'] + "'>View Story</a></p>"
-                layer.bindPopup(markerContent);
-
-                return L.marker();
-            }
-        });
-
-        clusterMarkers.addLayer(markerGeojson);
-        map.addLayer(clusterMarkers);
-}
-*/
