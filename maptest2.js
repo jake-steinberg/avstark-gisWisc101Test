@@ -63,7 +63,9 @@ if(mapContainer) {
             //L.marker([43.7844, -89.25]); // DEFAULT MAP MARKER LOCATION
 
             if( (exhibit['lat'] && exhibit['lat'] !== "") && ( exhibit['long'] && exhibit['long'] !== "") ) {
-                    let marker = L.markerClusterGroup.layerSupport();//.addTo(map).checkIn(markerGeojson);
+                    //let clusterMarkers = L.markerClusterGroup({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
+                    //let marker = L.markerClusterGroup.layerSupport();//.addTo(map).checkIn(markerGeojson);
+                    let marker = L.markerClusterGroup.layerSupport({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
                     
                     let markerGeojson = L.geoJson(geoJson, {
                     onEachFeature: function(feature, layer, latlng) {
