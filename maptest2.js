@@ -41,11 +41,13 @@ if(mapContainer) {
         style: {color: 'black', weight: '.7', fillOpacity: 0}
     }).addTo(map);
 
+    //CHANGE cluster radius to bring in points at various distances, also to have constant icon vs. pin icon for single points
+    //markerCluster = L.markerClusterGroup({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
+    
     markerCluster = L.markerClusterGroup();
     geoJsonCluster = L.geoJson(testData);
     markerCluster.addLayer(geoJsonCluster); //markers before slider initialized
     map.addLayer(markerCluster);
-
 
 
     //SET THE MARKERS WITH LAYER SUPPORT AND CHECK IN | BEFORE SLIDER
@@ -63,10 +65,9 @@ if(mapContainer) {
             //L.marker([43.7844, -89.25]); // DEFAULT MAP MARKER LOCATION
 
             if( (exhibit['lat'] && exhibit['lat'] !== "") && ( exhibit['long'] && exhibit['long'] !== "") ) {
-                    //let clusterMarkers = L.markerClusterGroup({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
-                    //let marker = L.markerClusterGroup.layerSupport();//.addTo(map).checkIn(markerGeojson);
-                    let marker = L.markerClusterGroup.layerSupport({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
+                    //let marker = L.markerClusterGroup.layerSupport({maxClusterRadius : 20, showCoverageOnHover : false, singleMarkerMode : true});
                     
+                    let marker = L.markerClusterGroup.layerSupport();
                     let markerGeojson = L.geoJson(geoJson, {
                     onEachFeature: function(feature, layer, latlng) {
                         const exhibit = feature['properties'];
@@ -82,7 +83,7 @@ if(mapContainer) {
                         
                     }
                     });
-                
+                // 1. marker added to map 2. layer added to marker 3. add layer to map
                 marker.addTo(map);
                 marker.addLayer(markerGeojson);
                 markerGeojson.addTo(map);
@@ -97,7 +98,7 @@ if(mapContainer) {
     getSlider();
 } // if map
 
-//####### Was thinking of replacing the clider object created by Justin with the Leaflet Slider plugin #######
+//####### Was thinking of replacing the slider object created by Justin with the Leaflet Slider plugin #######
 function getSlider(){
     slider = document.getElementById("time-slider");
     let sliderOutput = document.getElementById("slider-output");
@@ -124,7 +125,7 @@ function getSlider(){
         }
         setMapMarkers();
     }
-}// end getSlider()
+}
 
 function inMarkers(lookForId) {
     if(markers.length === 0) { return false }
