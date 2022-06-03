@@ -1,124 +1,130 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>CARTO Wisc101 Test</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
-    <link rel="stylesheet" href="css/leaflet.draw.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet"href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css"integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV"crossorigin="anonymous"/>
-	<link rel="stylesheet"href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"crossorigin="anonymous"/>
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        .marker-cluster-small {
-  			/*background: url("img/cluster101.png");*/
-			background-image: url("images/clusterLt.png");
-			background-color: rgba(242, 245, 240, 0.0);
-    		background-size: cover;
-    		height: 100%;
-    		width: 100%;
-    		display: -webkit-box;
-    		display: -ms-flexbox;
-    		display: flex;
-    		-webkit-box-align: center;
-    		-ms-flex-align: center;
-   			-webkit-box-pack: center;
-    		-ms-flex-pack: center;
-    		color: #fff;
-    		font-size: 14px;
-    		font-family: "Nimbus Sans L Bol",sans-
-			}
-			.marker-cluster-small div {
-  			background-color: rgba(242, 245, 240, 0.0);
-			/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
-			color: black;
-  			font-size: 12px;
-  			align-items: center;
-			}
-			.marker-cluster-medium {
-  			/*background: url("img/cluster101.png");*/
-			background-image: url("images/clusterLt.png");
-			background-color: rgba(242, 245, 240, 0.0);
-    		background-size: cover;
-    		height: 100%;
-    		width: 100%;
-    		display: -webkit-box;
-    		display: -ms-flexbox;
-    		display: flex;
-    		-webkit-box-align: center;
-    		-ms-flex-align: center;
-   			-webkit-box-pack: center;
-    		-ms-flex-pack: center;
-    		color: #fff;
-    		font-size: 14px;
-    		font-family: "Nimbus Sans L Bol",sans-
-			}
-			.marker-cluster-medium div {
-  			background-color: rgba(242, 245, 240, 0.0);
-			/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
-			color: black;
-  			font-size: 12px;
-  			align-items: center;
-			}
-			.marker-cluster-large {
-  			/*background: url("img/cluster101.png");*/
-			background-image: url("images/clusterLt.png");
-			background-color: rgba(242, 245, 240, 0.0);
-    		background-size: cover;
-    		height: 100%;
-    		width: 100%;
-    		display: -webkit-box;
-    		display: -ms-flexbox;
-    		display: flex;
-    		-webkit-box-align: center;
-    		-ms-flex-align: center;
-   			-webkit-box-pack: center;
-    		-ms-flex-pack: center;
-    		color: #fff;
-    		font-size: 14px;
-    		font-family: "Nimbus Sans L Bol",sans-
-			}
-			.marker-cluster-large div {
-  			background-color: rgba(242, 245, 240, 0.0);
-			/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
-			color: black;
-  			font-size: 12px;
-  			align-items: center;
-			}
-        /*This is the reset the map link button | Needs to be in html to override leaflet*/
-        .leaflet-bar button {
-        background-position: 50% 50%;
-        background-repeat: no-repeat;
-        overflow: hidden;
-        display: block;
-        background-image: url("images/reset2.jpg");
-        }
-    </style>
-
+	<meta name="viewport" content="width=device-width" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Map Tests</title>
+	<link rel="stylesheet" href="./interactive-map.css" type="text/css" />
+	
+		<!--LEAFLET-->
+		<script src="lib/jquery-3.6.0.js"></script>
+    	<script src="lib/jquery-ui.js"></script>
+		
+	    
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha384-RFZC58YeKApoNsIbBxf4z6JJXmh+geBSgkCQXFyh+4tiFSJmJBt+2FbjxW7Ar16M" crossorigin="anonymous"></script>
+	    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js" integrity="sha384-89yDmbSkL9reFc77m10ZbqLaUMf1sp7FAJs2oAD/rczNnY7I+17yN9KML6tpYpCk" crossorigin="anonymous"></script>
+		<!-- After Leaflet and Leaflet.markercluster scripts -->
+		<script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
+		<!--<script src="lib/marker.support.layer.js"></script>-->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.2/jquery.ui.touch-punch.min.js"></script>
+		<script src="lib/sliderControl.js"></script>
+		
+		
+	    <link rel="stylesheet"href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"integrity="sha384-VzLXTJGPSyTLX6d96AxgkKvE/LRb7ECGyTxuwtpjHnVWVZs2gp5RDjeM/tgBnVdM"crossorigin="anonymous"/>
+	    <link rel="stylesheet"href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.css"integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV"crossorigin="anonymous"/>
+	    <link rel="stylesheet"href="https://unpkg.com/leaflet.markercluster@1.5.0/dist/MarkerCluster.Default.css"integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"crossorigin="anonymous"/>
 </head>
-<body>
-    <div id="map"></div>
 
-<!-- JAVASCRIPT -->
-   <script src="lib/jquery-3.6.0.js"></script>
-    <script src="lib/jquery-ui.js"></script>
-    <script src="lib/bootstrap.min.js"></script>
-    <script src="lib/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-    <script src="lib/leaflet.draw.js"></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.5.0/dist/leaflet.markercluster.js" integrity="sha384-89yDmbSkL9reFc77m10ZbqLaUMf1sp7FAJs2oAD/rczNnY7I+17yN9KML6tpYpCk" crossorigin="anonymous"></script>
-    
-    <!--Data Set Scripts-->
-    <script src="data/dnrRegions.js"></script>
-    <script src="data/uwSchools.js"></script>
-    <script src="data/wiscBoundary.js"></script>
-    <script src="data/wiscCounty.js"></script>
-    <script src="data/storydata.js"></script>
-	<script src="data/storyObjects.js"></script>
-    
-    <script src="js/main.js"></script>
+<body>
+	
+    <div class='hs-map'>
+    	<div class='map-widget-container'>
+
+				<div class='wisc-101-map-container'>
+					<div id='wisc-101-map'></div>
+
+					<div class='slider-container'>
+						<span id='slider-output'>2022</span>
+						<input type='range' min='1800' step='20' max='2022' value='2022' class='slider' id='time-slider' />
+					</div>
+				</div>
+
+    	</div>
+    </div>
+<!--this styleing override needs to be in the index.html or go into the Leafleat.css and change it there-->
+<style>
+	.marker-cluster-small {
+	  /*background: url("img/cluster101.png");*/
+	background-image: url("img/clusterLt.png");
+	background-color: rgba(242, 245, 240, 0.0);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	   -webkit-box-pack: center;
+	-ms-flex-pack: center;
+	color: #fff;
+	font-size: 14px;
+	font-family: "Nimbus Sans L Bol",sans-
+	}
+	.marker-cluster-small div {
+	  background-color: rgba(242, 245, 240, 0.0);
+	/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+	color: black;
+	  font-size: 12px;
+	  align-items: center;
+	}
+	.marker-cluster-medium {
+	  /*background: url("img/cluster101.png");*/
+	background-image: url("img/clusterLt.png");
+	background-color: rgba(242, 245, 240, 0.0);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	   -webkit-box-pack: center;
+	-ms-flex-pack: center;
+	color: #fff;
+	font-size: 14px;
+	font-family: "Nimbus Sans L Bol",sans-
+	}
+	.marker-cluster-medium div {
+	  background-color: rgba(242, 245, 240, 0.0);
+	/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+	color: black;
+	  font-size: 12px;
+	  align-items: center;
+	}
+	.marker-cluster-large {
+	  /*background: url("img/cluster101.png");*/
+	background-image: url("img/clusterLt.png");
+	background-color: rgba(242, 245, 240, 0.0);
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	   -webkit-box-pack: center;
+	-ms-flex-pack: center;
+	color: #fff;
+	font-size: 14px;
+	font-family: "Nimbus Sans L Bol",sans-
+	}
+	.marker-cluster-large div {
+	  background-color: rgba(242, 245, 240, 0.0);
+	/*font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+	color: black;
+	  font-size: 12px;
+	  align-items: center;
+	}
+</style>
+
+	<footer>
+		<!--External Scripts-->
+		<script src="./data/testData.js"></script>
+		<script src="./data/wiscBoundary.js"></script>
+		<script src="./maptest2.js"></script>
+	</footer>
 </body>
 </html>
